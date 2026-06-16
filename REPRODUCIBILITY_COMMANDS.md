@@ -24,6 +24,11 @@ Each smoke output should include `composition_target_manifest.json`,
 contains requested and actual Ca/Si and Zn/Si values, `composition_match`,
 `validation_label`, `coordination_quality`, and `failure_reason`.
 
+Overcoordinated composition-targeted candidates are included by default as
+minimum-valid candidates. `--ideal-only` restricts accepted candidates to
+`ideal_fourfold`. `--include-overcoordinated` is a retained compatibility flag
+and does not change default acceptance behavior.
+
 In a clean package checkout, `examples/07_run_quasistatic_mechanics.py` needs
 the post-minimized pure C-S-H and Q2b_Zn references produced by
 `04_build_lammps_inputs.py` and `06_run_static_relaxation.py`.

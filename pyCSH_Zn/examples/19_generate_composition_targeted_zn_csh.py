@@ -249,8 +249,19 @@ def build_parser():
     parser.add_argument("--n-models", type=int, default=5)
     parser.add_argument("--seed-start", type=int, default=12000)
     parser.add_argument("--output-dir", default=os.path.join("output_Y", "workflow_v1", "composition_targeted"))
-    parser.add_argument("--include-overcoordinated", action="store_true")
-    parser.add_argument("--ideal-only", action="store_true")
+    parser.add_argument(
+        "--include-overcoordinated",
+        action="store_true",
+        help=(
+            "Compatibility flag only. Overcoordinated candidates are included by "
+            "default as minimum-valid candidates unless --ideal-only is used."
+        ),
+    )
+    parser.add_argument(
+        "--ideal-only",
+        action="store_true",
+        help="Accept only candidates with coordination_quality == ideal_fourfold.",
+    )
     return parser
 
 
@@ -276,6 +287,11 @@ def main():
         "seeds": seeds,
         "include_overcoordinated": bool(args.include_overcoordinated),
         "ideal_only": bool(args.ideal_only),
+        "coordination_acceptance_policy": (
+            "overcoordinated candidates are included by default as minimum-valid candidates; "
+            "--include-overcoordinated is a compatibility no-op; --ideal-only restricts "
+            "accepted candidates to ideal_fourfold"
+        ),
         "finite_temperature_md": "not run",
         "mechanics": "not run",
     }

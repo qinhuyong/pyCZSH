@@ -35,6 +35,11 @@ validation gate from the composition-match gate. It does not guarantee exact
 arbitrary final ratios because integer Zn counts, available Q1/Q2b sites,
 Zn-Zn compatibility, and validation can constrain the result.
 
+Overcoordinated candidates are included by default as minimum-valid candidates.
+Use `--ideal-only` to restrict accepted candidates to `ideal_fourfold` only.
+`--include-overcoordinated` is retained only as a compatibility flag and does
+not change the default acceptance behavior.
+
 Example:
 
 ```bash

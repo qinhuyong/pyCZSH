@@ -20,6 +20,11 @@ python pyCSH_Zn/examples/19_generate_composition_targeted_zn_csh.py --target-ca-
 The command reports both requested and actual compositions. Exact arbitrary
 Ca/Si or Zn/Si values are not guaranteed.
 
+Composition-targeted screening includes overcoordinated candidates by default as
+minimum-valid candidates. Use `--ideal-only` to accept only `ideal_fourfold`
+candidates. `--include-overcoordinated` is retained as a compatibility flag and
+does not change the default acceptance behavior.
+
 `examples/07_run_quasistatic_mechanics.py` defaults to only:
 
 - `pure_csh`
