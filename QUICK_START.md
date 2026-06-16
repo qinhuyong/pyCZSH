@@ -11,6 +11,15 @@ python pyCSH_Zn/examples/06_run_static_relaxation.py
 python pyCSH_Zn/examples/07_run_quasistatic_mechanics.py
 ```
 
+Composition-targeted target-window screening is optional:
+
+```bash
+python pyCSH_Zn/examples/19_generate_composition_targeted_zn_csh.py --target-ca-si 1.5 --ca-si-tol 0.08 --target-zn-si 0.05 --zn-si-tol 0.03 --site-mode multi_q2b --n-models 5 --seed-start 12000 --output-dir output_composition_targeted
+```
+
+The command reports both requested and actual compositions. Exact arbitrary
+Ca/Si or Zn/Si values are not guaranteed.
+
 `examples/07_run_quasistatic_mechanics.py` defaults to only:
 
 - `pure_csh`
@@ -35,3 +44,8 @@ python pyCSH_Zn/examples/18_run_selected_multi_zn_mechanics.py --models-csv pyCS
 For all quasi-static mechanics workflows, strain cases start independently from
 the same post-minimized reference structure. Sequential strain accumulation is
 not used.
+
+Use `04_build_lammps_inputs.py`, `06_run_static_relaxation.py`, `07`, or the
+opt-in mechanics scripts for downstream LAMMPS read/run0/static minimization or
+quasi-static deformation. The composition-targeted command itself is not a
+production simulation.
